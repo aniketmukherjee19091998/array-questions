@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MissingNumber {
+
+    // hashing seems to be the better solution iff the elements are not distinct
     private static int missingNumber(int[] arr, int N) {
         int[] hash = new int[N + 1];
         for (int i : arr)
