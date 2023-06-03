@@ -31,6 +31,25 @@ public class AlternateNegativePositve {
         }
     }
 
+    /*
+     * A little more optimized solution where we can use only one loop rather than 2
+     * or 3 like before
+     */
+    private static int[] optimized_alternatePositiveAndNegative(int[] arr, int n) {
+        int[] result = new int[n];
+        int p = 0, neg = 1;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] < 0) {
+                result[neg] = arr[i];
+                neg += 2;
+            } else {
+                result[p] = arr[i];
+                p += 2;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         Random random = new Random();
         int[] arr = new int[random.nextInt(2, 100)];
@@ -38,6 +57,7 @@ public class AlternateNegativePositve {
             arr[i] = random.nextInt(-10, 20);
         }
         System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(optimized_alternatePositiveAndNegative(arr, arr.length)));
         alternateNegativePositive(arr, arr.length);
         System.out.println(Arrays.toString(arr));
     }
