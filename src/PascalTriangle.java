@@ -4,6 +4,12 @@ import java.util.Random;
 
 public class PascalTriangle {
 
+    /*
+     * The formula for pascal's triangle is for any element in ith row and jth col
+     * the element is :
+     * (i-1)C(j-1)
+     */
+
     private static void printRow(int n) {
         int ans = 1;
         System.out.print(ans + " ");
