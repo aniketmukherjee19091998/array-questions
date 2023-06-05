@@ -50,6 +50,25 @@ public class RotateMatrixByClockwise {
         }
     }
 
+    static void rotateby90(int mat[][], int n) {
+        // code here
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i != j)
+                    swap(mat, i, j);
+            }
+        }
+        // now we reverse the secondary array order inside the matirx
+        for (int i = 0; i < n / 2; i++) {
+            int[] tmp = mat[i];
+            mat[i] = mat[n - i - 1];
+            mat[n - i - 1] = tmp;
+        }
+        for (int[] arr : mat) {
+            System.out.println(Arrays.toString(arr));
+        }
+    }
+
     public static void main(String[] args) {
         Random random = new Random();
         int n = random.nextInt(2, 10);
@@ -64,15 +83,16 @@ public class RotateMatrixByClockwise {
         }
         System.out.println();
         System.out.println();
-        int[][] res = rotateByNinetyDegressClockwise(mat, n);
-        for (int i = 0; i < res.length; i++) {
-            System.out.println(Arrays.toString(res[i]));
-        }
-        System.out.println();
-        System.out.println();
-        optimized_rotateMatrixByNinetyDegreessClockwise(mat, n);
-        for (int i = 0; i < mat.length; i++) {
-            System.out.println(Arrays.toString(mat[i]));
-        }
+        rotateby90(mat, n);
+        // int[][] res = rotateByNinetyDegressClockwise(mat, n);
+        // for (int i = 0; i < res.length; i++) {
+        // System.out.println(Arrays.toString(res[i]));
+        // }
+        // System.out.println();
+        // System.out.println();
+        // optimized_rotateMatrixByNinetyDegreessClockwise(mat, n);
+        // for (int i = 0; i < mat.length; i++) {
+        // System.out.println(Arrays.toString(mat[i]));
+        // }
     }
 }
